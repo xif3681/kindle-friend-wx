@@ -1,0 +1,50 @@
+<!-- pages/allbooks/allbooks.wxml -->
+<scroll-view scroll-y='true' style="height:{{height}}px" bindscrolltolower='lower'>
+  <view class="page__bd">
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__bd">
+        <navigator url="/pages/details/details?id={{item.id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" wx:for="{{array}}" wx:key="id">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="{{item.imgsrc}}" />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title">{{item.title}}</view>
+            <view class="weui-media-box__desc">{{item.abstract}}</view>
+            <view class="weui-media-box__info">
+              <view class="weui-media-box__info__meta">{{item.grade}}分/</view>
+              <view class="weui-media-box__info__meta">{{item.time}}/</view>
+              <view class="weui-media-box__info__meta">{{item.Publisher}}</view>
+              <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">
+                {{item.author}}
+              </view>
+            </view>
+          </view>
+        </navigator>
+        <navigator url="/pages/details/details?id={{item.id}}" class="weui-media-box weui-media-box_text" wx:for="{{array}}" wx:key="id">
+          <view class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</view>
+          <view class="weui-media-box__desc">{{item.abstract}}</view>
+          <view class="weui-media-box__info">
+            <view class="weui-media-box__info__meta">{{item.grade}}分/</view>
+            <view class="weui-media-box__info__meta">{{item.time}}/</view>
+            <view class="weui-media-box__info__meta">{{item.Publisher}}</view>
+            <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">
+              {{item.author}}
+            </view>
+          </view>
+        </navigator>
+      </view>
+      <view class="page__bd">
+        <view class="weui-loadmore" wx:if="{{!overbottom}}">
+          <view class="weui-loading"></view>
+          <view class="weui-loadmore__tips">正在加载</view>
+        </view>
+        <view class="weui-loadmore weui-loadmore_line" wx:else>
+          <view class="weui-loadmore__tips weui-loadmore__tips_in-line">已加载完</view>
+        </view>
+        <view class="weui-loadmore weui-loadmore_line weui-loadmore_dot">
+          <view class="weui-loadmore__tips weui-loadmore__tips_in-line weui-loadmore__tips_in-dot"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

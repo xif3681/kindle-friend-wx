@@ -1,0 +1,46 @@
+/* pages/details/details.wxss */
+.xydown_down_link {
+  background: none repeat scroll 0 0 #FFFCEF;
+  border: 1rpx solid #FFBB76;
+  border-radius: 2rpx;
+  color: #DB7C22;
+  font-size: 14px;
+  padding: 5rpx 10rpx;
+  margin: 10rpx;
+} 
+
+.weui-article__p {
+  color:#999;
+  font-size:14px;
+}
+.weui-cell__bd {
+  font-size:14px;
+}
+.weui-cells__title{
+  color: #DB7C22;
+}
+.button-sp-area{
+  position: relative;
+  height: 50px;
+}
+.button-right {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+.button-left {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+}
+.statement {
+  border: 1rpx solid #BFBFBF;
+  border-radius: 2rpx;
+  font-size:12px;
+  padding: 5rpx 10rpx;
+  margin: 10rpx;
+}
+.weui-media-box__info__meta{
+  padding-right:5rpx;
+  color:#b2b2b2;
+}

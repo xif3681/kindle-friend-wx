@@ -1,12 +1,13 @@
-//index.js
-//获取应用实例
+// pages/allbooks/allbooks.js
 var base64 = require("../../static/images/base64");
-const app = getApp()
-
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    inputShowed: false,
-    inputVal: "",
+    overbottom: false,
+    height: '',
     array: [{
       id: '0001',
       imgsrc: base64.icon60,
@@ -35,37 +36,102 @@ Page({
       Publisher: '商务印书馆',
       abstract: '由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。',
     }]
+
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    wx.getSystemInfo({
+      success: (res) => {
+        this.setData({
+          height: res.windowHeight
+        })
+      }
     })
+
   },
-  onLoad: function () {
+  lower() {
+    const array = this.data.array;
+    let cont = []
+    for(let i = 0; i < 5; i++) {
+      const item = {
+        id: new Date().getTime(),
+        imgsrc: base64.icon60,
+        title: '老子今注今译',
+        grade: '9.0',
+        author: '老子',
+        time: '2003',
+        Publisher: '商务印书馆',
+        abstract: '由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。',
+      };
+      cont.push(item)
+
+    }
+    
+    cont = [...array, ...cont];
+    if (cont.length >= 30) { 
+      this.setData({
+        overbottom: true
+      });
+      return
+    }
+
+    setTimeout(() => {
+      this.setData({
+        array: cont
+      });
+    }, 1500)
 
   },
 
-  showInput: function () {
-    this.setData({
-      inputShowed: true
-    });
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
   },
-  hideInput: function () {
-    this.setData({
-      inputVal: "",
-      inputShowed: false
-    });
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
   },
-  clearInput: function () {
-    this.setData({
-      inputVal: ""
-    });
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
   },
-  inputTyping: function (e) {
-    console.log(e)
-    this.setData({
-      inputVal: e.detail.value
-    });
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   }
 })

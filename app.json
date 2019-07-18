@@ -1,12 +1,14 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/allbooks/allbooks",
+    "pages/details/details"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "KINDLE_FREND",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json"

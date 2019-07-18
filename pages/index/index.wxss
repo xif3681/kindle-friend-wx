@@ -15,3 +15,7 @@
 .userinfo-nickname {
   color: #aaa;
 }
+.weui-media-box__info__meta{
+  padding-right:5rpx;
+}
+
